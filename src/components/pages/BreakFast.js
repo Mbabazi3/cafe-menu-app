@@ -1,7 +1,15 @@
 import React from "react";
+import OrdersList from "../OrdersList";
+import menu from "../data";
 
 const BreakFast = () => {
-  return <div>BreakFast</div>;
+  const breakFastItems = menu.filter((item) => item.category === "breakfast");
+
+  return (
+    <div>
+      <OrdersList menu={breakFastItems} />
+    </div>
+  );
 };
 
 export default BreakFast;

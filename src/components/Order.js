@@ -1,23 +1,28 @@
 import React from "react";
 import classes from "./styles/Order.module.css";
-import item1 from "../assets/item-1.jpeg";
+// import item1 from "../assets/item-1.jpeg";
 
-const Order = () => {
+const Order = ({ id, title, category, price, img, desc }) => {
   return (
     <div className={classes.order_details}>
       <section className={classes.left}>
-        <img src={item1} alt="item1" />
+        <img
+          src={img}
+          alt={title}
+          onError={(event) => {
+            event.target.src =
+              "https://glovoapp.com/images/svg/bckg-pattern.svg";
+            event.onerror = null;
+          }}
+        />
       </section>
 
       <section className={classes.right}>
         <article className={classes.order_descrption}>
-          <h2 className={classes.title}>Fajita Sandwich Combo</h2>
-          <p className={classes.price}>$60</p>
+          <h2 className={classes.title}>{title}</h2>
+          <p className={classes.price}>${price}</p>
         </article>
-        <p className={classes.descrption}>
-          cronyms are used to save time, avoid typing and ensure a social media
-          post stays within a certain character limit. Although many seem as if
-        </p>
+        <p className={classes.descrption}>{desc}</p>
       </section>
     </div>
   );
